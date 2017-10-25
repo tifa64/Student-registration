@@ -1,3 +1,22 @@
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript">
+
+        function validateForm() {
+        	var pausecontent = new Array();
+    		<?php 
+    			foreach($deps as $dep=>$dep_value) { 
+    		?>
+        			pausecontent.push('<?php echo $dep_value; ?>');
+    		<?php 
+    			} 
+    		?>
+    		alert(pausecontent[0]);
+        }
+
+  		</script>
+
+
+
 <?php
 
 $servername = "localhost";
@@ -27,11 +46,13 @@ if ($result->num_rows > 0) {
 
 <html>
 <br>
-<form method="post" action="welcome.php">
+<form id="form" method="post" onsubmit="return validateForm()">
 <?php 
 foreach($deps as $dep=>$dep_value) {
     ?>
-   <input type="radio" name="<?= $option; ?>"><?php echo $dep_value?><br>
+   <input type="radio" ID = "dept" name="<?= $dep; ?>"><?php echo $dep_value?><br>
 
 <?php }?>
 <input name= "submit" type="submit" value="Submit">
+</form>
+
