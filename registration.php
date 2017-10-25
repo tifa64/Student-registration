@@ -65,7 +65,7 @@
 
 <body>
     <div> Registration </div>
-      <form id="form" action="chosenDepartment.php" method="post" onsubmit="return validateForm()">
+      <form id="form" action="DepCheck.php" method="post" onsubmit="return validateForm()">
         <h3>*Username :</h3>
         <input type = "text" Name ="username" ID="username"  placeholder="Username" >
         <br />
@@ -130,7 +130,7 @@
 
   <body>
     <div> Login </div>
-      <form id="form" action="chosenDepartment.php" method="post" onsubmit="return validateForm2()">
+      <form id="form" action="DepCheck.php" method="post" onsubmit="return validateForm2()">
         <h3>*Username :</h3>
         <input type = "text" Name ="username" ID="username2"  placeholder="Username" >
         <br />

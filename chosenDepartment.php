@@ -1,24 +1,35 @@
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
 
         function validateForm() {
-        	var pausecontent = new Array();
-    		<?php 
-    			foreach($deps as $dep=>$dep_value) { 
-    		?>
-        			pausecontent.push('<?php echo $dep_value; ?>');
-    		<?php 
-    			} 
-    		?>
-    		alert(pausecontent[0]);
-        }
+        	var radios = document.querySelectorAll('input[ID="dept"]');
+            var chosendDep;
+            alert(radios.length);
+            for(var i = 0; i < radios.length; i++) {
+                if(radios[i].checked) {
+                    chosendDep = i + 1
+                    $.ajax({
+                        type: "POST",
+                        url: 'RegisterDepartment.php',
+                        dataType: 'json',
+                        data : {chosendDep},
+                        success: function(data) {
+                            alert(data.res);
+                        }
+                    });
+                                alert("You have chosen departmen number :");
 
+                }
+            }
+        } 
+    
   		</script>
 
 
 
 <?php
-
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -29,7 +40,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
+$username=$_SESSION['username'];
+$password=$_SESSION['password'];
+
+echo " Hello " . $username;
 
 $table = "SELECT * FROM Department";
 $result = $conn->query($table);
@@ -44,15 +59,15 @@ if ($result->num_rows > 0) {
 }
 ?>
 
-<html>
-<br>
-<form id="form" method="post" onsubmit="return validateForm()">
+
+<form id="form" action="courses.php" method="post" onsubmit="return validateForm()">
 <?php 
 foreach($deps as $dep=>$dep_value) {
-    ?>
-   <input type="radio" ID = "dept" name="<?= $dep; ?>"><?php echo $dep_value?><br>
+    
 
-<?php }?>
+   echo '<input type="radio" ID = "dept" value="' . htmlspecialchars($dep_value) . '" />"' . htmlspecialchars($dep_value) . '"'."\n";
+
+}?>
 <input name= "submit" type="submit" value="Submit">
 </form>
 
