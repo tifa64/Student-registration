@@ -1,7 +1,9 @@
   <?php
+  $username=$_POST['username'];
+  $password=$_POST['password'];
   $response = array();
   $response['status'] = 'no';
-  $response['message'] = 'This was successful';
+  $response['message'] = 'This failed';
 
   $servername = "localhost";
   $username = "root";
@@ -17,21 +19,17 @@
 
   $username=$_POST['username'];
   $password=$_POST['password'];
-  $email=$_POST['email'];
   $table = "SELECT username FROM User WHERE username = '$username'";
   $result = $conn->query($table);
   if ($result->num_rows > 0) {
-      $response['status'] = 'yes';
-      $response['message'] = 'This failed';
-    }
-  else {
-    $sql = "INSERT into User(username, password, email) values ('$username','$password','$email')";
-    if ($conn->query($sql) === TRUE) {
-      $response['res'] = 'yay';
-    } 
-    else {
-    $response['res'] = 'yee';
-    }
+      $table = "SELECT password FROM User WHERE password = '$password'";
+      $result = $conn->query($table);
+      if ($result->num_rows > 0) {
+          $response['status'] = 'yes';
+          $response['message'] = 'This succeeded';
+      }
+      
+
   }
   echo json_encode($response);
 ?>
