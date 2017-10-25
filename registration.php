@@ -103,10 +103,11 @@
         $.ajax({
             type: "POST",
             url: 'LoginCheck.php',
-            data : {username},
+            data : {username, password},
             dataType: 'json',
             success: function(data) {
               isLoggedin = data['status'];
+              alert(isLoggedin);
             }
         });
         alert('Validating');

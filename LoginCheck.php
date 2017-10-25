@@ -19,17 +19,11 @@
 
   $username=$_POST['username'];
   $password=$_POST['password'];
-  $table = "SELECT username FROM User WHERE username = '$username'";
+  $table = "SELECT * FROM User WHERE username = '$username' AND password = '$password'";
   $result = $conn->query($table);
   if ($result->num_rows > 0) {
-      $table = "SELECT password FROM User WHERE password = '$password'";
-      $result = $conn->query($table);
-      if ($result->num_rows > 0) {
           $response['status'] = 'yes';
-          $response['message'] = 'This succeeded';
-      }
-      
-
+          $response['message'] = 'This succeeded';    
   }
   echo json_encode($response);
 ?>
