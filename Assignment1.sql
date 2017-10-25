@@ -1,4 +1,3 @@
-drop DATABASE Assignment1 ;
 create DATABASE Assignment1 ;
 use Assignment1 ;
 
@@ -10,7 +9,7 @@ use Assignment1 ;
 	);
 
 	create TABLE User (
-	user_id int Auto_Increment,
+	user_id int NOT NULL AUTO_INCREMENT,
 	email varchar(255) unique not null, 
 	username varchar(50) unique not null,
 	password varchar(255) not null,
