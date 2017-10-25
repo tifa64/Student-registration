@@ -15,11 +15,8 @@
                         dataType: 'json',
                         data : {chosendDep},
                         success: function(data) {
-                            alert(data.res);
                         }
                     });
-                                alert("You have chosen departmen number :");
-
                 }
             }
         } 

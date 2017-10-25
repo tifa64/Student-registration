@@ -19,6 +19,8 @@
   $chosendDep=$_POST['chosendDep'];
   $username=$_SESSION['username'];
   $password=$_SESSION['password'];
+  $_SESSION['chosendDep'] = $chosendDep;
+
 
   $sql = "UPDATE User SET dept_id = '$chosendDep' WHERE username = '$username' AND password = '$password'";
   $conn->query($sql);
