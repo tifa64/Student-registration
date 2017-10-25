@@ -14,13 +14,24 @@ if ($conn->connect_error) {
 
 $table = "SELECT * FROM Department";
 $result = $conn->query($table);
-
+$deps;
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo  "Dep ID : " .$row["dept_id"]. " Dep name : " . $row["dept_name"]. "<br>";
-    }
+    	$deps[] = $row["dept_name"];
+	}
 } else {
     echo "0 results";
 }
 ?>
+
+<html>
+<br>
+<form method="post" action="welcome.php">
+<?php 
+foreach($deps as $dep=>$dep_value) {
+    ?>
+   <input type="radio" name="<?= $option; ?>"><?php echo $dep_value?><br>
+
+<?php }?>
+<input name= "submit" type="submit" value="Submit">
