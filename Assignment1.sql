@@ -8,7 +8,7 @@ use Assignment1 ;
 	PRIMARY key(dept_id)
 	);
 
-	create TABLE User (
+	create TABLE Users (
 	user_id int NOT NULL AUTO_INCREMENT,
 	email varchar(255) unique not null, 
 	username varchar(50) unique not null,

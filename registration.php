@@ -20,7 +20,6 @@
             return false;  
         }  
     }
-
     function validateForm() {
         var username= document.getElementById("username").value;
         var password=document.getElementById("password").value;
@@ -37,7 +36,6 @@
             }
         });
         alert('Validating');
-
         if(username==null || username=="") {
             alert("Enter your name! ");
             return false;
@@ -94,7 +92,6 @@
             return false;  
         }  
     }
-
     function validateForm2() {
         var username= document.getElementById("username2").value;
         var password=document.getElementById("password2").value;
@@ -111,7 +108,6 @@
             }
         });
         alert('Validating');
-
         if(username==null || username=="") {
             alert("Enter your name! ");
             return false;

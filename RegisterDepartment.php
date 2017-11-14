@@ -22,7 +22,7 @@
   $_SESSION['chosendDep'] = $chosendDep;
 
 
-  $sql = "UPDATE User SET dept_id = '$chosendDep' WHERE username = '$username' AND password = '$password'";
+  $sql = "UPDATE Users SET dept_id = '$chosendDep' WHERE username = '$username' AND password = '$password'";
   $conn->query($sql);
 
   echo json_encode($chosendDep);
