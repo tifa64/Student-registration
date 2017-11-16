@@ -18,7 +18,7 @@ $password=$_POST['password'];
 $_SESSION['username'] = $username;
 $_SESSION['password'] = $password;
 
-$table = "SELECT * FROM User WHERE username = '$username' AND password = '$password'";
+$table = "SELECT * FROM Users WHERE username = '$username' AND password = '$password'";
 
 $result = $conn->query($table);
 $deps;
