@@ -20,42 +20,47 @@
             return false;  
         }  
     }
+
     function validateForm() {
         var username= document.getElementById("username").value;
         var password=document.getElementById("password").value;
         var email=document.getElementById("email").value;
         var isDuplicate = "";
         
-        $.ajax({
-            type: "POST",
-            url: 'checkDuplicate.php',
-            data : {username, password, email},
-            dataType: 'json',
-            success: function(data) {
-              isDuplicate = data['status'];
-            }
-        });
         alert('Validating');
+
         if(username==null || username=="") {
             alert("Enter your name! ");
             return false;
         }
-        if(isDuplicate == 'yes') {
-          alert("Username is duplicate! ");
-          return false;
-        }
+        
         else if(password==null || password=="") {
             alert("Enter your password! ");
             return false;
         }
-        else {
-            if (email==null || email=="") {
+        else if (email==null || email=="")
+             {
                 alert("Enter your email! ");
                 return false;
             }
-            else
-              return ValidateEmail(email);
-       }
+        else if (!ValidateEmail(email))
+              return false;
+       else {
+			$.ajax({
+				type: "POST",
+				url: 'checkDuplicate.php',
+				data : {username, password, email},
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					isDuplicate = data['status'];
+				}
+			});
+			if(isDuplicate == 'yes') {
+				alert("Username is duplicate! ");
+				return false;
+			}
+	   }
     
     }   
     </script>
@@ -92,33 +97,36 @@
             return false;  
         }  
     }
+
     function validateForm2() {
         var username= document.getElementById("username2").value;
         var password=document.getElementById("password2").value;
         var isLoggedin = "";
         
-        $.ajax({
-            type: "POST",
-            url: 'LoginCheck.php',
-            data : {username, password},
-            dataType: 'json',
-            success: function(data) {
-              isLoggedin = data['status'];
-              alert(isLoggedin);
-            }
-        });
         alert('Validating');
+
         if(username==null || username=="") {
             alert("Enter your name! ");
             return false;
         }
-        if(isLoggedin == 'no') {
-          alert("Username or password aren't found");
-          return false;
-        }
         else if(password==null || password=="") {
             alert("Enter your password! ");
             return false;
+        }
+		
+		$.ajax({
+            type: "POST",
+            url: 'LoginCheck.php',
+            data : {username, password},
+            dataType: 'json',
+			async: false,
+            success: function(data) {
+              isLoggedin = data['status'];
+            }
+        });
+		if(isLoggedin == 'no') {
+          alert("Username or password aren't found");
+          return false;
         }
     
     }   

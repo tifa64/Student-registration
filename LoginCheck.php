@@ -19,7 +19,7 @@
 
   $username=$_POST['username'];
   $password=$_POST['password'];
-  $table = "SELECT username,password FROM Users WHERE username = '$username' AND password = '$password'";
+  $table = "SELECT * FROM User WHERE username = '$username' AND password = '$password'";
   $result = $conn->query($table);
   if ($result->num_rows > 0) {
           $response['status'] = 'yes';

@@ -18,15 +18,14 @@
   $username=$_POST['username'];
   $password=$_POST['password'];
   $email=$_POST['email'];
-  $table = "SELECT username FROM Users WHERE username = '$username'";
+  $table = "SELECT username FROM User WHERE username = '$username'";
   $result = $conn->query($table);
   if ($result->num_rows > 0) {
       $response['status'] = 'yes';
       $response['message'] = 'This failed';
     }
   else {
-	$encryptedPassword = password_hash($password, PASSWORD_DEFAULT); 
-    $sql = "INSERT into Users(username, password, email) values ('$username','$encryptedPassword','$email')";
+    $sql = "INSERT into User(username, password, email) values ('$username','$password','$email')";
     if ($conn->query($sql) === TRUE) {
       $response['res'] = 'yay';
     } 
