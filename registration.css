@@ -1,0 +1,23 @@
+body {
+    background-image: url("monsters-u-3.jpg");
+	background-repeat: no-repeat;
+}
+.center1 {
+	color: white;
+}
+.center2 {
+	color: white;
+}
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	border-radius: 12px;
+}
+
+.button:hover {
+    background-color: #ADD8E6; /* Blue */
+    color: white;
+}
+.input {
+	border-radius: 12px;
+}

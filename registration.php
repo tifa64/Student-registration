@@ -1,11 +1,9 @@
 <!DOCTYPE HTML>  
 <html>
-<head>
-<style>
-.error {color: #FF0000;}
-</style>
-</head>
+<link rel="stylesheet" type="text/css" href="registration.css">
 <body>  
+
+
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
@@ -64,22 +62,31 @@
     
     }   
     </script>
+<script>
+$(document).ready(function(){
+    $("#reg").click(function(){
+        $("#form1").toggle();
+    });
+});
+</script>
+</head>
+<body>
 
+<button class="button" id = reg> Show/Hide Registration</button>
 
 <body>
-    <div> Registration </div>
-      <form id="form" action="DepCheck.php" method="post" onsubmit="return validateForm()">
+      <form class="center1" id="form1" action="DepCheck.php" method="post" onsubmit="return validateForm()">
         <h3>*Username :</h3>
-        <input type = "text" Name ="username" ID="username"  placeholder="Username" >
+        <input class="input" type = "text" Name ="username" ID="username"  placeholder="Username" >
         <br />
         <h3>*Password :</h3>
-        <input type = "password" Name ="password" ID="password" placeholder="Password" >
+        <input class="input" type = "password" Name ="password" ID="password" placeholder="Password" >
         <br />
         <h3>*Email :</h3>
-        <input type = "text" Name ="email" ID="email" placeholder="Email" >
+        <input class="input" type = "text" Name ="email" ID="email" placeholder="Email" >
         <br />
         <br />
-        <input type ="submit" value = "SIGN UP">
+        <input class="button" type ="submit" value = "Register">
       </form>
   </body>
 
@@ -131,17 +138,30 @@
     
     }   
     </script>
+<script>
+$(document).ready(function(){
+    $("#login").click(function(){
+        $("#form2").toggle();
+    });
+});
+</script>
+<body>
+<br />
+<br />
+<br />
+<button class="button" id = login> Show/Hide Login</button>
+<body>
 
   <body>
-    <div> Login </div>
-      <form id="form" action="DepCheck.php" method="post" onsubmit="return validateForm2()">
+      <form class="center2" id="form2" action="DepCheck.php" method="post" onsubmit="return validateForm2()">
         <h3>*Username :</h3>
-        <input type = "text" Name ="username" ID="username2"  placeholder="Username" >
+        <input class="input" type = "text" Name ="username" ID="username2"  placeholder="Username" >
         <br />
         <h3>*Password :</h3>
-        <input type = "password" Name ="password" ID="password2" placeholder="Password" >
+        <input class="input" type = "password" Name ="password" ID="password2" placeholder="Password" >
         <br />
-        <input type ="submit" value = "Login">
+		<br />
+        <input class="button" type ="submit" value = "Login">
       </form>
   </body>
 
