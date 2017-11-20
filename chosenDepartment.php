@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="Departments.css">
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript">
@@ -41,8 +42,6 @@ if ($conn->connect_error) {
 $username=$_SESSION['username'];
 $password=$_SESSION['password'];
 
-echo " Hello " . $username;
-
 $table = "SELECT * FROM Department";
 $result = $conn->query($table);
 $deps;
@@ -56,7 +55,7 @@ if ($result->num_rows > 0) {
 }
 ?>
 
-
+<h3 class="header"> Hello : <?php echo $username; ?></h3>
 <form id="form" action="courses.php" method="post" onsubmit="return validateForm()">
 <?php 
 foreach($deps as $dep=>$dep_value) {
@@ -65,6 +64,6 @@ foreach($deps as $dep=>$dep_value) {
    echo '<input type="radio" ID = "dept" value="' . htmlspecialchars($dep_value) . '" />"' . htmlspecialchars($dep_value) . '"'."\n";
 
 }?>
-<input name= "submit" type="submit" value="Submit">
+<input class="button" name= "submit" type="submit" value="Submit">
 </form>
 

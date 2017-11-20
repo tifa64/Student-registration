@@ -1,12 +1,9 @@
 body {
-    background-image: url("monsters-u-3.jpg");
-	background-size: cover;
+    background-image: url("monsters-university-new-trailer.jpg");
+	background-size: 100% 100%;
 }
-.center1 {
-	color: white;
-}
-.center2 {
-	color: white;
+.header {
+	color:white;
 }
 .button {
     -webkit-transition-duration: 0.4s; /* Safari */
