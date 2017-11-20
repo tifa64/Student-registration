@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="courses.css">
 <?php
   session_start();
   $servername = "localhost";
@@ -14,7 +15,6 @@
   $chosendDep=$_SESSION['chosendDep'];
   $username=$_SESSION['username'];
 
-  echo " Hello " . $username;
 
   $table = "SELECT course_name FROM Course WHERE dept_id = '$chosendDep'";
   $result = $conn->query($table);
