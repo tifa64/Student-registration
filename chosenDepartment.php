@@ -40,7 +40,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 $username=$_SESSION['username'];
-$password=$_SESSION['password'];
 
 $table = "SELECT * FROM Department";
 $result = $conn->query($table);

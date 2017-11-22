@@ -18,7 +18,7 @@ $password=$_POST['password'];
 $_SESSION['username'] = $username;
 $_SESSION['password'] = $password;
 
-$table = "SELECT * FROM User WHERE username = '$username' AND password = '$password'";
+$table = "SELECT * FROM User WHERE username = '$username'";
 
 $result = $conn->query($table);
 $deps;
@@ -35,5 +35,7 @@ if ($result->num_rows > 0) {
   		}
 	}
 }
-
 ?>
+<body>
+    <h3>Duplicate email : Return back to registration</h3>
+</body>

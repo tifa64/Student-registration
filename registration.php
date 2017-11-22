@@ -44,6 +44,16 @@
         else if (!ValidateEmail(email))
               return false;
        else {
+		    $.ajax({
+				type: "POST",
+				url: 'Encrypt.php',
+				data : {password},
+				dataType: 'json',
+				async: false,
+				success: function(data) {
+					password = data['message'];
+				}
+			});
 			$.ajax({
 				type: "POST",
 				url: 'checkDuplicate.php',
